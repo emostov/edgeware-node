@@ -11,7 +11,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
     $SUDO_PREFIX apt update
     $SUDO_PREFIX apt install -y build-essential cmake pkg-config libssl-dev openssl git clang libclang-dev
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-    echo "Found macbook"
+    echo "Found MacOS"
     brew install cmake pkg-config openssl git llvm
 fi
 
@@ -24,8 +24,8 @@ else
 fi
 
 rustup update stable
-rustup update nightly
-rustup target add wasm32-unknown-unknown --toolchain nightly
+rustup install nightly-2020-10-06
+rustup target add wasm32-unknown-unknown --toolchain nightly-2020-10-06
 
 if [[ $(wasm-gc) ]]; then
     echo "Found wasm-gc"

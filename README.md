@@ -50,15 +50,15 @@ Install Edgeware dependencies:
 ```
 curl https://sh.rustup.rs -sSf | sh
 rustup update stable
-rustup update nightly
-rustup target add wasm32-unknown-unknown --toolchain nightly
+rustup install nightly-2020-10-06
+rustup target add wasm32-unknown-unknown --toolchain nightly-2020-10-06
 cargo install --git https://github.com/alexcrichton/wasm-gc
 ```
 
 Build Edgeware:
 
 ```
-cargo build --release
+WASM_BUILD_TOOLCHAIN=nightly-2020-10-06 cargo build --release
 ```
 
 Ensure you have a fresh start if updating from another version:
